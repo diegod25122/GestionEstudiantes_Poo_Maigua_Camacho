@@ -22,4 +22,25 @@ public class EstudianteService {
     public Estudiante guardar(Estudiante estudiante) {
         return repository.save(estudiante);
     }
+
+    public Estudiante obtenerPorId(Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Estudiante no encontrado"));
+    }
+
+    public void eliminar(Long id) {
+        repository.deleteById(id);
+    }
+
+    public Estudiante actualizar(Long id, Estudiante estudiante) {
+        Estudiante existente = obtenerPorId(id);
+
+        existente.setNombre(estudiante.getNombre());
+        existente.setEmail(estudiante.getEmail());
+        existente.setEdad(estudiante.getEdad());
+        existente.setCarrera(estudiante.getCarrera());
+
+        return repository.save(existente);
+    }
+
 }

@@ -26,4 +26,22 @@ public class EstudianteController {
     public Estudiante crear(@Valid @RequestBody Estudiante estudiante) {
         return service.guardar(estudiante);
     }
+    @GetMapping("/{id}")
+    public Estudiante obtenerPorId(@PathVariable Long id) {
+        return service.obtenerPorId(id);
+    }
+    @DeleteMapping("/{id}")
+    public void eliminar(@PathVariable Long id) {
+        service.eliminar(id);
+
+    }
+    @PutMapping("/{id}")
+    public Estudiante actualizar(
+            @PathVariable Long id,
+            @Valid @RequestBody Estudiante estudiante) {
+        return service.actualizar(id, estudiante);
+    }
+
+
+
 }
