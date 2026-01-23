@@ -12,7 +12,7 @@ public class Estudiante {
     private Long id;
 
     @NotBlank(message = "El nombre es obligatorio")
-    @Size(min = 3, max = 50)
+    @Size(min = 3, max = 50, message = "El nombre debe tener entre 3 7 50 caracteres")
     private String nombre;
 
     @NotBlank(message = "El email es obligatorio")
@@ -25,9 +25,6 @@ public class Estudiante {
 
     @NotBlank(message = "La carrera es obligatoria")
     private String carrera;
-
-    public Estudiante() {
-    }
 
     public Long getId() {
         return id;

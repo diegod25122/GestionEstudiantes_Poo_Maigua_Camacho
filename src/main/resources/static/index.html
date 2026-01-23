@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Estudiantes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 40px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 70%;
+            margin: auto;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background: #1976d2;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Lista de Estudiantes</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Edad</th>
+        <th>Carrera</th>
+    </tr>
+    </thead>
+    <tbody id="tabla-estudiantes"></tbody>
+</table>
+
+<script>
+    fetch("http://localhost:8080/api/estudiantes")
+        .then(res => res.json())
+        .then(data => {
+            const tabla = document.getElementById("tabla-estudiantes");
+            data.forEach(e => {
+                tabla.innerHTML += `
+                    <tr>
+                        <td>${e.id}</td>
+                        <td>${e.nombre}</td>
+                        <td>${e.email}</td>
+                        <td>${e.edad}</td>
+                        <td>${e.carrera}</td>
+                    </tr>
+                `;
+            });
+        });
+</script>
+
+</body>
+</html>
