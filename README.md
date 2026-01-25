@@ -2,7 +2,7 @@
 
 1. Clonar el repositorio del proyecto
 
-git clone https://github.com/usuario/repositorio.git
+git clone https://github.com/diegod25122/GestionEstudiantes_Poo_Maigua_Camacho.git
 
 2. Abrir el proyecto en el IDE
 
@@ -31,7 +31,7 @@ mvn spring-boot:run
 6. Verificar la ejecución
 
 La aplicación se ejecuta por defecto en:
-http://localhost:8080
+http://localhost:8080 y luego agrega la tabla que estes usando por ejemplo /estudiantes
 
 
 -Probar los endpoints usando Postman o el navegador
